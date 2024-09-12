@@ -15,7 +15,7 @@ object GenAva extends App {
   SpinalVerilog {
     val plugins = List(
       new IBusCachedPlugin(
-        resetVector = 0x00000000l,            // <-
+        resetVector = 0x80000000l,
         compressedGen = true,                 // <-
         injectorStage = true,                 // <- for compressedGen (ANTICIPATE)
         config = InstructionCacheConfig(
