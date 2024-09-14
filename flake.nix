@@ -21,9 +21,10 @@
       '';
 
       devShells.default = pkgs.mkShell {
-        buildInputs = [
-          pkgs.sbt
-          pkgs.verilator
+        buildInputs = with pkgs; [
+          sbt
+          verilator
+          metals
         ];
       };
     });
