@@ -72,6 +72,10 @@ object GenAva extends App {
 
     cpu.rework {
       for (plugin <- plugins) plugin match {
+        case plugin: IBusCachedPlugin => {
+          plugin.iBus.setAsDirectionLess()
+          master(plugin.iBus.toWishbone()).setName("iBusWishbone")
+        }
         case plugin: DBusSimplePlugin => {
           plugin.dBus.setAsDirectionLess()
           master(plugin.dBus.toWishbone()).setName("dBusWishbone")
